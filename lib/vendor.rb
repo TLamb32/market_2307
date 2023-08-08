@@ -8,16 +8,16 @@ class Vendor
   end
 
   def stock(item, quantity)
-    @inventory[item] = @inventory[item] + quantity
     if @inventory[item].nil? || @inventory[item] == false
       @inventory[item] = 0
     end
+    @inventory[item] += quantity
   end
 
   def check_stock(item)
+    if @inventory[item].nil? || @inventory[item] == false
+     @inventory[item] = 0
+    end
     @inventory[item]
-     if @inventory[item].nil? || @inventory[item] == false
-      @inventory[item] = 0
-     end
   end
 end
